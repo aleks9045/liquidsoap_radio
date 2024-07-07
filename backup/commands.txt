@@ -1,0 +1,33 @@
+файлы из папки radio должны находится в директории /home/radio/
+music/ - папка с музыкой, должно быть три плейлиста(папки 1 2 3)
+
+sudo apt update
+sudo apt upgrade
+
+sudo adduser radio
+sudo usermod -aG sudo radio
+su radio
+
+sudo apt-get install libfreetype6-dev
+
+sudo apt-get install opam
+opam init
+eval $(opam env)
+
+opam switch create cs3110-2022fa ocaml-base-compiler.5.2.0
+eval $(opam env)
+
+opam install ffmpeg liquidsoap sdl-liquidsoap.3
+eval $(opam env)
+
+# Приготовления для запуска
+cd /home/radio/
+opam init
+eval $(opam env)
+git clone https://github.com/savonet/liquidsoap-daemon.git
+cd liquidsoap-daemon
+bash daemonize-liquidsoap.sh /home/radio/src/main.liq
+
+# Команда для запуска/рестарта/остановки
+sudo systemctl start/restart/stop main-liquidsoap
+
