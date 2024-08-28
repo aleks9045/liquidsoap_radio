@@ -1,1 +1,1 @@
-Instructions for Internet radio on Liquidsoap
+# Instructions for internet-radio on Liquidsoap
