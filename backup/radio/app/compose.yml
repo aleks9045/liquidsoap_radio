@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  liquidsoap:
+    build: .
+    volumes:
+      - /path_to_music_folder/music:/app/music
+      - /path_to_video_folder/video:/app/video
+    restart: always
